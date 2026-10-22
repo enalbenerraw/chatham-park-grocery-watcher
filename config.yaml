@@ -67,6 +67,7 @@ google_news:
   # automatically in the form: "Chatham Park" <chain>
   queries:
     - '"Chatham Park" grocery'
+    - '"Chatham Park" "grocery store"'
     - Pittsboro grocery store
     - '"Chatham Park" YMCA retail'
     - '"Chatham Park" supermarket'

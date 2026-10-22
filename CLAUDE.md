@@ -16,7 +16,7 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 ## How it works
 
 1. **Sources.** Google News RSS searches (configured queries plus one `"Chatham Park" <chain>` per chain). Local news feeds (Chatham News + Record, Chapelboro, Chatham Journal), each with fallback URLs tried in order. Town of Pittsboro CivicPlus Agenda Center (`/RSSFeed.aspx?ModID=65&CID=All-0`, `/AgendaCenter`, `/AgendaCenter/Search/`), filtered to Board of Commissioners and Planning Board, downloading `?packet=true` PDFs and extracting text with pypdf.
-2. **Matching.** Flag only if the text has a location term AND a grocery term (generic word or chain). Case-insensitive, tolerant of apostrophes, hyphens, and plurals.
+2. **Matching.** Flag only if the text has a location term AND a grocery term (generic word or chain). Case-insensitive, tolerant of apostrophes, hyphens, and plurals, except that chain names never match in all lower case ("sprouts" is a plant). Google News feeds carry only the headline, so for those items a grocery term in the search that found the item counts as the grocery hit; the location must still be in the headline. The digest marks these "Headline only".
 3. **Low priority.** If an item mentions a `low_priority_terms` entry (Lowes Foods, Northwood Landing), names no other chain, and has no `new_store_phrases` match, it is held in `state["pending_low"]` and never emails alone. It rides along with the next real digest or weekly heartbeat.
 4. **Dedupe.** News is keyed by normalized URL, title hash, and title+link hash. Agenda packets are keyed by document ID plus the set of grocery terms found, so an amended packet naming a new chain alerts again. Upcoming meetings are re-scanned each run; past meetings are scanned once.
 5. **Email.** One digest per run via Gmail SMTP (app password) or Resend. Nothing new means no email, except an optional weekly heartbeat. State is saved only after a send succeeds, so a failed send retries next run.
@@ -29,11 +29,10 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 ## Verification status
 
 - Offline tests pass: `python -m unittest test_watcher -v`.
-- **Never run against the live web.** It was built in a sandbox that blocked news.google.com, pittsboronc.gov, and the local news sites. Unconfirmed assumptions:
-  - The local news feed URLs in `config.yaml` (standard WordPress `/feed/` paths). Chatham Journal's domain was not confirmed to exist.
-  - The CivicPlus Agenda Center HTML structure (board name taken from the nearest preceding `h2`/`h3`) and the `ModID=65` RSS feed.
-  - Google News RSS titles end in ` - <Source>`, which the code strips.
-- The first `check-sources` run on Actions is the real test. Fix any `FAIL` lines by correcting URLs in `config.yaml` or parsing in `watcher.py`.
+- Verified against the live web on 2026-10-22: all sources work, including the three local `/feed/` URLs.
+  - Agenda Center markup: each board is an `h2` ("6.  Planning Board (PB)"); each meeting row has a date `h3` and the meeting name as `<p><a>`. The test fixture mirrors this.
+  - Google News RSS titles end in ` - <Source>`, which the code strips. The feed has no article text, hence the search-term rule above.
+  - Google's `when:90d` filter drops some articles the same search finds without it. Known quirk, not worked around.
 
 ## Done when
 

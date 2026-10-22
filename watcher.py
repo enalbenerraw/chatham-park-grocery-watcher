@@ -67,6 +67,7 @@ class Item:
     text: str
     kind: str = "news"  # news or agenda
     doc_id: str | None = None
+    search: str = ""  # the Google News search that found this item
 
 
 @dataclass
@@ -117,6 +118,7 @@ class Matcher:
         grocery = list(cfg.get("grocery_terms", [])) + list(cfg.get("grocery_chains", []))
         self.grocery = self._compile(grocery)
         self.generic = {t.lower() for t in cfg.get("grocery_terms", [])}
+        self.chains = {t.lower() for t in cfg.get("grocery_chains", [])}
         self.low = {t.lower() for t in cfg.get("low_priority_terms", [])}
         self.fresh = self._compile(cfg.get("new_store_phrases", []))
         # Low-priority terms like "Northwood Landing" are context, not grocery
@@ -131,15 +133,28 @@ class Matcher:
     def _compile(terms):
         return [(t, re.compile(term_pattern(t), re.I)) for t in terms if str(t).strip()]
 
-    @staticmethod
-    def _hits(compiled, text):
-        return [term for term, pat in compiled if pat.search(text)]
+    def _hits(self, compiled, text):
+        # Chain names are proper nouns: "sprouts" or "aldi" in all lower case
+        # is a plant or a typo, not the store.
+        return [term for term, pat in compiled
+                if any(term.lower() not in self.chains or not m.group(0).islower()
+                       for m in pat.finditer(text))]
 
     def match(self, item: Item) -> Match | None:
         text = normalize(f"{item.title}. {item.text}")
         loc = self._hits(self.location, text)
+        if not loc:
+            return None
         groc = self._hits(self.grocery, text)
-        if not loc or not groc:
+        from_search = False
+        if not groc and item.search:
+            # Google News searches the full article but its feed carries only
+            # the headline. A grocery term in the search that found the item
+            # counts, as long as the headline itself names the location.
+            text = f"{text} {normalize(item.search)}"
+            groc = self._hits(self.grocery, text)
+            from_search = bool(groc)
+        if not groc:
             return None
         named = [g for g in groc if g.lower() not in self.low and g.lower() not in self.generic]
         old_news = bool(self._hits(self.low_patterns, text))
@@ -149,7 +164,10 @@ class Matcher:
         # "new store" phrases from config.yaml.
         low_priority = old_news and not named and not fresh
         m = Match(item, loc, groc, low_priority)
-        m.snippets = self.snippets(text, named or groc, 3 if item.kind == "agenda" else 1)
+        if from_search:
+            m.snippets = [f"Headline only. Google News found this article with the search: {item.search}"]
+        else:
+            m.snippets = self.snippets(text, named or groc, 3 if item.kind == "agenda" else 1)
         return m
 
     def snippets(self, text: str, preferred: list[str], limit: int, width: int = 220) -> list[str]:
@@ -244,7 +262,7 @@ def fetch_google_news(session, cfg, statuses) -> list[Item]:
                 title = title[: -len(source) - 3]
             items.append(Item(
                 title=normalize(title), link=e.get("link", ""), source=source,
-                published=entry_date(e), text=strip_html(e.get("summary", "")),
+                published=entry_date(e), text=strip_html(e.get("summary", "")), search=q,
             ))
         statuses.append(SourceStatus(f"Google News: {q}", True, "ok", len(feed.entries)))
         time.sleep(1)  # be polite to Google
@@ -331,10 +349,14 @@ def discover_agendas(session, base: str) -> dict[str, dict]:
             continue
         soup = BeautifulSoup(resp.text, "html.parser")
         for a in soup.find_all("a", href=AGENDA_RE):
-            heading = a.find_previous(["h2", "h3"])
+            # Each board is an h2 ("1. Board of Commissioners (BOC)"). Each
+            # meeting row holds a date h3 and the meeting name as <p><a>.
+            heading = a.find_previous("h2")
+            board = re.sub(r"^\s*\d+\.\s*", "", heading.get_text(" ")) if heading else ""
             row = a.find_parent("tr")
-            title = row.get_text(" ") if row else a.get_text(" ")
-            add(a["href"], title, heading.get_text(" ") if heading else "")
+            name = row.select_one("p a") if row else None
+            title = (name or row or a).get_text(" ")
+            add(a["href"], title, board)
 
     if not docs and errors:
         raise RuntimeError("; ".join(errors))

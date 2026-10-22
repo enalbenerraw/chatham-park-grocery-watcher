@@ -18,7 +18,7 @@ Stories that are only about the existing Lowes Foods at Northwood Landing are ma
 
 Subject: **Chatham Park grocery watch: 3 new mentions**
 
-Each mention shows the headline (linked), source, date, which keywords matched, and the matching passage with keywords highlighted. At the bottom, a one-line health check says how many sources worked, and names any that failed.
+Each mention shows the headline (linked), source, date, which keywords matched, and the matching passage with keywords highlighted. Some news items say "Headline only": Google News found the grocery mention inside the article, but only shares the headline, so open the link to read it. At the bottom, a one-line health check says how many sources worked, and names any that failed.
 
 If nothing new turned up, no email is sent. Once a week (Monday by default) you get a short "no new mentions this week" email so you know it is still running. You can turn that off.
 
@@ -141,6 +141,6 @@ To send real email locally, set `SMTP_USER`, `SMTP_PASSWORD`, and `EMAIL_TO` as 
 
 ## Known limits
 
-- Google News gives only a headline and a one-line summary, so a story that names the chain deep in the article and not in the headline or summary can be missed. The chain-specific searches reduce this risk.
+- Google News gives only a headline, so the watcher trusts Google's own search of the full article: if a search with a grocery word found a story whose headline names Chatham Park or Pittsboro, it is included and marked "Headline only". A story whose headline names neither place can still be missed. The chain-specific searches reduce this risk.
 - Agenda packets that are scanned images (no selectable text) cannot be searched. Most Pittsboro packets are text PDFs.
 - Packets over 60 MB are skipped so a single giant file cannot stall a run. Change `max_file_mb` in `config.yaml` to raise the limit.
