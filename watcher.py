@@ -584,8 +584,19 @@ def send_email(cfg: dict, subject: str, html_body: str, text_body: str) -> None:
     msg.add_alternative(html_body, subtype="html")
     host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
     port = int(os.environ.get("SMTP_PORT", "465"))
+    # Google shows app passwords in spaced groups, and pasting can add a
+    # newline. None of that whitespace is part of the password.
+    user, password = user.strip(), "".join(password.split())
     with smtplib.SMTP_SSL(host, port, timeout=TIMEOUT) as smtp:
-        smtp.login(user, password.replace(" ", ""))
+        try:
+            smtp.login(user, password)
+        except (smtplib.SMTPAuthenticationError, smtplib.SMTPServerDisconnected) as e:
+            # Describe the secrets' shape, never their values.
+            raise RuntimeError(
+                f"Gmail refused the sign-in ({e}). SMTP_USER should be a full Gmail address "
+                f"(it {'has' if '@' in user else 'has no'} @). SMTP_PASSWORD should be the "
+                f"16-letter app password (it has {len(password)} characters)."
+            ) from e
         smtp.send_message(msg)
 
 
