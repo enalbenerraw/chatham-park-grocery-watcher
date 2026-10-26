@@ -588,12 +588,17 @@ def send_email(cfg: dict, subject: str, html_body: str, text_body: str) -> None:
     # newline. None of that whitespace is part of the password.
     user, password = user.strip(), "".join(password.split())
     with smtplib.SMTP_SSL(host, port, timeout=TIMEOUT) as smtp:
+        # login() would retry with AUTH LOGIN after a rejected AUTH PLAIN, and
+        # Gmail hangs up on the retry, hiding its real answer. Try PLAIN once.
+        smtp.ehlo()
+        smtp.user, smtp.password = user, password
         try:
-            smtp.login(user, password)
-        except (smtplib.SMTPAuthenticationError, smtplib.SMTPServerDisconnected) as e:
+            smtp.auth("PLAIN", smtp.auth_plain)
+        except smtplib.SMTPAuthenticationError as e:
+            reason = e.smtp_error.decode(errors="replace").replace("\n", " ")
             # Describe the secrets' shape, never their values.
             raise RuntimeError(
-                f"Gmail refused the sign-in ({e}). SMTP_USER should be a full Gmail address "
+                f"Gmail refused the sign-in ({e.smtp_code} {reason}). SMTP_USER should be a full Gmail address "
                 f"(it {'has' if '@' in user else 'has no'} @). SMTP_PASSWORD should be the "
                 f"16-letter app password (it has {len(password)} characters)."
             ) from e
