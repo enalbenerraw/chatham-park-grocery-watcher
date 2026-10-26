@@ -231,7 +231,12 @@ def parse_feed(session, url):
     resp.raise_for_status()
     feed = feedparser.parse(resp.content)
     if feed.bozo and not feed.entries:
-        raise ValueError(f"not a valid feed ({feed.get('bozo_exception')})")
+        # Say what came back instead, such as a bot-check page served as HTML.
+        got = resp.headers.get("Content-Type", "unknown type")
+        title = re.search(r"<title[^>]*>(.*?)</title>", resp.text, re.I | re.S)
+        if title:
+            got += f', page titled "{normalize(strip_html(title.group(1)))[:80]}"'
+        raise ValueError(f"not a valid feed ({feed.get('bozo_exception')}; got {got})")
     return feed
 
 
