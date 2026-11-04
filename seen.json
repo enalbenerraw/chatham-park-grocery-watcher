@@ -1,6 +1,6 @@
 {
   "last_heartbeat": "2026-11-02",
-  "last_run": "2026-11-03T13:21:12-05:00",
+  "last_run": "2026-11-04T13:33:41-05:00",
   "pending_low": [],
   "scanned_docs": {
     "09142026-566": "2026-10-27",
@@ -8,7 +8,7 @@
     "09282026-570": "2026-10-27",
     "10122026-571": "2026-10-27",
     "10192026-574": "2026-10-27",
-    "11092026-579": "2026-11-03"
+    "11092026-579": "2026-11-04"
   },
   "sent": {
     "title:3f1bbcebb052ac14": {
@@ -23,11 +23,29 @@
       "status": "sent",
       "title": "First Residential Communities for South Village Announced, Project Details Shared in Annual Chatham Park Update"
     },
+    "title:77ee0519fcf7ab0f": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5",
+      "status": "sent",
+      "title": "Pittsboro daycare worker arrested for second time this month. What new charges allege"
+    },
+    "title:a8b0adba3f22767f": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2Rjd0V1d2g5WVA2NDZMMU5zRTNtTDgwbkQ3OGNXdWI3RkZWbktsMUdROEE1eUlYUFZjaVB4SFZjTVFHeUZuODdCNTdwVDVmWjNGNlF2WXlSTzBPVmphcDFMck5HSE11T2M4OGhhTDRFam1lY1MwNVlKS1Q3YjU2NzNDMERhM0pQUzNZY1p6TC1yQkFpNGJmbUJvNTJzSVBxZHJMZ21PdFpQc1B3dnRCMHhvUkhKQWtuLXJHOVl2ZWhiYkdEUVFSSUh30gHPAUFVX3lxTE9KYUFYQXg2WFZvQnJMSnU1dXJodTBXZE5qNlJuLXBDRjd1QTYwUS11VXpsV3M0dUxkb2Q1V2d5UlY0eTFQaDFqYTQ2UjVFZk5BUFZGemxoUDdzSmhLWTUyZ0M1NnFLQ1p2ZU0yRHljMURpdXNvS2RoLTF4eVVQaHRTMGRQR0kyMkptRDhmRE5nUVJRc0tVaFAwWUhBZEQyWFVyekVWSHBaeFhLMmRNUnE5bVBMODFMV0hrN3lFdTF0bTRwcWExbHlVSkNqeUh3bw?oc=5",
+      "status": "sent",
+      "title": "Chatham Park maps next growth wave: 4,700 lots, new village center and major medical expansion"
+    },
     "title:b7d94a75ae207e39": {
       "date": "2026-10-27",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGFKdEhHV0IxTjMwVnlERDJaelZSR01hZnFMckRGYkRoVVp2M0FiOHg1OU1BZ3F1SFg1UmZ5V0JwSWJUSElTYkdiSEYwTzlRc3FyWGF3bFpIUHh6Z0dEdXBMWFBkLXg3T3dYNXlXRmg4MTRRVUJCcGQ2SEFYQUV4Rnh2VUhTcl810gGIAUFVX3lxTE9DYTdDTnR5c1hmbVc2SEUxSTIybktXQmZiSF9iUjZ1aHRPQUNya1ZfQ0ktdjhOSjFZdVdGMHJ2RXduOTh4Z3BXdzY1alBoRzZVQWxTYVl2NWY3UGlCTnFiZzZYdjEyZTdjVFd6Mk1US2pXaENBUERKeUlLZlhNY2xkek52N3czNzI?oc=5",
       "status": "sent",
       "title": "Chatham Park recruits world-class golf course designer for South Village project"
+    },
+    "titlelink:1bebaf665404cc5b": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5",
+      "status": "sent",
+      "title": "Pittsboro daycare worker arrested for second time this month. What new charges allege"
     },
     "titlelink:22e174821edb70a3": {
       "date": "2026-10-28",
@@ -47,6 +65,18 @@
       "status": "sent",
       "title": "First Residential Communities for South Village Announced, Project Details Shared in Annual Chatham Park Update"
     },
+    "titlelink:92caadb0dd194979": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2Rjd0V1d2g5WVA2NDZMMU5zRTNtTDgwbkQ3OGNXdWI3RkZWbktsMUdROEE1eUlYUFZjaVB4SFZjTVFHeUZuODdCNTdwVDVmWjNGNlF2WXlSTzBPVmphcDFMck5HSE11T2M4OGhhTDRFam1lY1MwNVlKS1Q3YjU2NzNDMERhM0pQUzNZY1p6TC1yQkFpNGJmbUJvNTJzSVBxZHJMZ21PdFpQc1B3dnRCMHhvUkhKQWtuLXJHOVl2ZWhiYkdEUVFSSUh30gHPAUFVX3lxTE9KYUFYQXg2WFZvQnJMSnU1dXJodTBXZE5qNlJuLXBDRjd1QTYwUS11VXpsV3M0dUxkb2Q1V2d5UlY0eTFQaDFqYTQ2UjVFZk5BUFZGemxoUDdzSmhLWTUyZ0M1NnFLQ1p2ZU0yRHljMURpdXNvS2RoLTF4eVVQaHRTMGRQR0kyMkptRDhmRE5nUVJRc0tVaFAwWUhBZEQyWFVyekVWSHBaeFhLMmRNUnE5bVBMODFMV0hrN3lFdTF0bTRwcWExbHlVSkNqeUh3bw?oc=5",
+      "status": "sent",
+      "title": "Chatham Park maps next growth wave: 4,700 lots, new village center and major medical expansion"
+    },
+    "url:https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5",
+      "status": "sent",
+      "title": "Pittsboro daycare worker arrested for second time this month. What new charges allege"
+    },
     "url:https://news.google.com/rss/articles/CBMi8wFBVV95cUxOU09yWWNEWkJXcWlJU25XVHNLLURCWUowcGw0TmdCV2FUMVdWbHhCSU0tdE5iMkhVQ0FkbWlmMFFPby05em92aHpGTU53TjBqMS1LcERsVkhqbDB6SV82ZVRCNE1mZnJ3QWs1V2VKQ2lHc040ZW8taThTcEhVb0xESG9kcWtHYVVEOHlvR29yZWhoS3J5UzJ3Y05RWU01TnE5MzV4c1c0UzlIcWJJdkJmYXdmVlpnRXFsbDNZRGhMTlJtX0lVUERMdFItT2trbFpQZnNFNi1NZEZ2TlNUQTRMZmNZSThkbGE1VlR3VEJuY0VQZHc?oc=5": {
       "date": "2026-10-28",
       "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOU09yWWNEWkJXcWlJU25XVHNLLURCWUowcGw0TmdCV2FUMVdWbHhCSU0tdE5iMkhVQ0FkbWlmMFFPby05em92aHpGTU53TjBqMS1LcERsVkhqbDB6SV82ZVRCNE1mZnJ3QWs1V2VKQ2lHc040ZW8taThTcEhVb0xESG9kcWtHYVVEOHlvR29yZWhoS3J5UzJ3Y05RWU01TnE5MzV4c1c0UzlIcWJJdkJmYXdmVlpnRXFsbDNZRGhMTlJtX0lVUERMdFItT2trbFpQZnNFNi1NZEZ2TlNUQTRMZmNZSThkbGE1VlR3VEJuY0VQZHc?oc=5",
@@ -64,6 +94,12 @@
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWTJ1YmxlMXZpN3FrTnNpUWNBSVQtOHJZNG83WmhHdGI0enpzN25INDJGbE5tRXJ6TWNfelNZNENCOW0wQ094Z21idDYyU3R4SlEwTTZReG5UdTF2bVgyMVhjeEctek1GeTlPX205S1hlVFl0SldQWEk4NFotMmNfNnBqZ19IR1ZIWFNSbC1vNUlmc3hOT1hqekNNdXNFZTZ4R0g2X3poaVl5UGZEUDVlZjlDTXhLUU5qMlVUZEdGMkx0QXR5NWRHZw?oc=5",
       "status": "sent",
       "title": "First Residential Communities for South Village Announced, Project Details Shared in Annual Chatham Park Update"
+    },
+    "url:https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2Rjd0V1d2g5WVA2NDZMMU5zRTNtTDgwbkQ3OGNXdWI3RkZWbktsMUdROEE1eUlYUFZjaVB4SFZjTVFHeUZuODdCNTdwVDVmWjNGNlF2WXlSTzBPVmphcDFMck5HSE11T2M4OGhhTDRFam1lY1MwNVlKS1Q3YjU2NzNDMERhM0pQUzNZY1p6TC1yQkFpNGJmbUJvNTJzSVBxZHJMZ21PdFpQc1B3dnRCMHhvUkhKQWtuLXJHOVl2ZWhiYkdEUVFSSUh30gHPAUFVX3lxTE9KYUFYQXg2WFZvQnJMSnU1dXJodTBXZE5qNlJuLXBDRjd1QTYwUS11VXpsV3M0dUxkb2Q1V2d5UlY0eTFQaDFqYTQ2UjVFZk5BUFZGemxoUDdzSmhLWTUyZ0M1NnFLQ1p2ZU0yRHljMURpdXNvS2RoLTF4eVVQaHRTMGRQR0kyMkptRDhmRE5nUVJRc0tVaFAwWUhBZEQyWFVyekVWSHBaeFhLMmRNUnE5bVBMODFMV0hrN3lFdTF0bTRwcWExbHlVSkNqeUh3bw?oc=5": {
+      "date": "2026-11-04",
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2Rjd0V1d2g5WVA2NDZMMU5zRTNtTDgwbkQ3OGNXdWI3RkZWbktsMUdROEE1eUlYUFZjaVB4SFZjTVFHeUZuODdCNTdwVDVmWjNGNlF2WXlSTzBPVmphcDFMck5HSE11T2M4OGhhTDRFam1lY1MwNVlKS1Q3YjU2NzNDMERhM0pQUzNZY1p6TC1yQkFpNGJmbUJvNTJzSVBxZHJMZ21PdFpQc1B3dnRCMHhvUkhKQWtuLXJHOVl2ZWhiYkdEUVFSSUh30gHPAUFVX3lxTE9KYUFYQXg2WFZvQnJMSnU1dXJodTBXZE5qNlJuLXBDRjd1QTYwUS11VXpsV3M0dUxkb2Q1V2d5UlY0eTFQaDFqYTQ2UjVFZk5BUFZGemxoUDdzSmhLWTUyZ0M1NnFLQ1p2ZU0yRHljMURpdXNvS2RoLTF4eVVQaHRTMGRQR0kyMkptRDhmRE5nUVJRc0tVaFAwWUhBZEQyWFVyekVWSHBaeFhLMmRNUnE5bVBMODFMV0hrN3lFdTF0bTRwcWExbHlVSkNqeUh3bw?oc=5",
+      "status": "sent",
+      "title": "Chatham Park maps next growth wave: 4,700 lots, new village center and major medical expansion"
     }
   }
 }
