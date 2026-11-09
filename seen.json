@@ -1,29 +1,15 @@
 {
-  "last_heartbeat": "2026-11-02",
-  "last_run": "2026-11-08T12:00:09-05:00",
-  "pending_low": [
-    {
-      "hits": [
-        "Chatham Park",
-        "Pittsboro",
-        "Mosaic",
-        "Lowes Foods"
-      ],
-      "link": "https://www.pittsboronc.gov/AgendaCenter/ViewFile/Agenda/_11162026-581?packet=true",
-      "published": "2026-11-16T00:00:00-05:00",
-      "snippet": "...operty to be rezoned is located on Highway 15-501, adjacent to Northwood High School, north of Highway 64, and west of Chatham Park PDD (Mosaic Blvd). The property is currently partially developed, with Zaxby's, Dunkin, Lowes Foods and adjacent commercial and office uses, Hubie's Car Wash, and multi- family residential. Page 2 of 6 By: Lizbeth Pignone, Planner II Community Meeting: The applicant conducted a community meeting on June 11, 2026 . The...",
-      "source": "Town of Pittsboro Agenda Center",
-      "title": "Planning Board (PB): Planning Board Regular Meeting Materials-6 p.m. (Nov 16, 2026)"
-    }
-  ],
+  "last_heartbeat": "2026-11-09",
+  "last_run": "2026-11-09T16:24:04-05:00",
+  "pending_low": [],
   "scanned_docs": {
     "09142026-566": "2026-10-27",
     "09212026-569": "2026-10-27",
     "09282026-570": "2026-10-27",
     "10122026-571": "2026-10-27",
     "10192026-574": "2026-10-27",
-    "11092026-579": "2026-11-08",
-    "11162026-581": "2026-11-08"
+    "11092026-579": "2026-11-09",
+    "11162026-581": "2026-11-09"
   },
   "sent": {
     "doc:11162026-581:lowes foods": {
