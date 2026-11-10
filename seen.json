@@ -1,6 +1,6 @@
 {
   "last_heartbeat": "2026-11-09",
-  "last_run": "2026-11-09T16:24:04-05:00",
+  "last_run": "2026-11-10T13:35:32-05:00",
   "pending_low": [],
   "scanned_docs": {
     "09142026-566": "2026-10-27",
@@ -9,7 +9,7 @@
     "10122026-571": "2026-10-27",
     "10192026-574": "2026-10-27",
     "11092026-579": "2026-11-09",
-    "11162026-581": "2026-11-09"
+    "11162026-581": "2026-11-10"
   },
   "sent": {
     "doc:11162026-581:lowes foods": {
@@ -17,6 +17,12 @@
       "link": "https://www.pittsboronc.gov/AgendaCenter/ViewFile/Agenda/_11162026-581?packet=true",
       "status": "held",
       "title": "Planning Board (PB): Planning Board Regular Meeting Materials-6 p.m. (Nov 16, 2026)"
+    },
+    "title:092a2cfab10288ce": {
+      "date": "2026-11-10",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5JNzBfTVJ0R3ByemFjUkRYVEpRQkRlNm8ybDc5OFlSdzZlQ25lZzJTNW5pY25LSEpfTzhtaTdrenF4TENrckhrLVZLRmhEcHlpZlkyYzJ3V2xVOFNKQXZfN1FfcU1MZXhxWXNJNkdsUVlob1kyM1k00gF3QVVfeXFMUGZPYk9sWjgzSWE2bFNpaDZocVdVQjkyM21lN0tSTEpVVllBSmxyc0VRc1A3bVZIWk1iZHBqVXhPNW9WUWNEekZwQUlkTDBQTUREWER2ellEYjQ0NGFGYU5oQlNmY2E4ZW90TFJMb2pGQjRpdVhUVnM?oc=5",
+      "status": "sent",
+      "title": "North Hills, Hillsborough Street and Pittsboro restaurants go out of business"
     },
     "title:3f1bbcebb052ac14": {
       "date": "2026-10-28",
@@ -60,6 +66,12 @@
       "status": "sent",
       "title": "SOUTHERN LAND COMPANY TO DEVELOP NEW MASTER-PLANNED COMMUNITY AND WORLD-CLASS GOLF COURSE IN CHATHAM PARK"
     },
+    "titlelink:405381479e939d60": {
+      "date": "2026-11-10",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5JNzBfTVJ0R3ByemFjUkRYVEpRQkRlNm8ybDc5OFlSdzZlQ25lZzJTNW5pY25LSEpfTzhtaTdrenF4TENrckhrLVZLRmhEcHlpZlkyYzJ3V2xVOFNKQXZfN1FfcU1MZXhxWXNJNkdsUVlob1kyM1k00gF3QVVfeXFMUGZPYk9sWjgzSWE2bFNpaDZocVdVQjkyM21lN0tSTEpVVllBSmxyc0VRc1A3bVZIWk1iZHBqVXhPNW9WUWNEekZwQUlkTDBQTUREWER2ellEYjQ0NGFGYU5oQlNmY2E4ZW90TFJMb2pGQjRpdVhUVnM?oc=5",
+      "status": "sent",
+      "title": "North Hills, Hillsborough Street and Pittsboro restaurants go out of business"
+    },
     "titlelink:79b2601e13c4ec07": {
       "date": "2026-10-27",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGFKdEhHV0IxTjMwVnlERDJaelZSR01hZnFMckRGYkRoVVp2M0FiOHg1OU1BZ3F1SFg1UmZ5V0JwSWJUSElTYkdiSEYwTzlRc3FyWGF3bFpIUHh6Z0dEdXBMWFBkLXg3T3dYNXlXRmg4MTRRVUJCcGQ2SEFYQUV4Rnh2VUhTcl810gGIAUFVX3lxTE9DYTdDTnR5c1hmbVc2SEUxSTIybktXQmZiSF9iUjZ1aHRPQUNya1ZfQ0ktdjhOSjFZdVdGMHJ2RXduOTh4Z3BXdzY1alBoRzZVQWxTYVl2NWY3UGlCTnFiZzZYdjEyZTdjVFd6Mk1US2pXaENBUERKeUlLZlhNY2xkek52N3czNzI?oc=5",
@@ -89,6 +101,12 @@
       "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOU09yWWNEWkJXcWlJU25XVHNLLURCWUowcGw0TmdCV2FUMVdWbHhCSU0tdE5iMkhVQ0FkbWlmMFFPby05em92aHpGTU53TjBqMS1LcERsVkhqbDB6SV82ZVRCNE1mZnJ3QWs1V2VKQ2lHc040ZW8taThTcEhVb0xESG9kcWtHYVVEOHlvR29yZWhoS3J5UzJ3Y05RWU01TnE5MzV4c1c0UzlIcWJJdkJmYXdmVlpnRXFsbDNZRGhMTlJtX0lVUERMdFItT2trbFpQZnNFNi1NZEZ2TlNUQTRMZmNZSThkbGE1VlR3VEJuY0VQZHc?oc=5",
       "status": "sent",
       "title": "SOUTHERN LAND COMPANY TO DEVELOP NEW MASTER-PLANNED COMMUNITY AND WORLD-CLASS GOLF COURSE IN CHATHAM PARK"
+    },
+    "url:https://news.google.com/rss/articles/CBMid0FVX3lxTE5JNzBfTVJ0R3ByemFjUkRYVEpRQkRlNm8ybDc5OFlSdzZlQ25lZzJTNW5pY25LSEpfTzhtaTdrenF4TENrckhrLVZLRmhEcHlpZlkyYzJ3V2xVOFNKQXZfN1FfcU1MZXhxWXNJNkdsUVlob1kyM1k00gF3QVVfeXFMUGZPYk9sWjgzSWE2bFNpaDZocVdVQjkyM21lN0tSTEpVVllBSmxyc0VRc1A3bVZIWk1iZHBqVXhPNW9WUWNEekZwQUlkTDBQTUREWER2ellEYjQ0NGFGYU5oQlNmY2E4ZW90TFJMb2pGQjRpdVhUVnM?oc=5": {
+      "date": "2026-11-10",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5JNzBfTVJ0R3ByemFjUkRYVEpRQkRlNm8ybDc5OFlSdzZlQ25lZzJTNW5pY25LSEpfTzhtaTdrenF4TENrckhrLVZLRmhEcHlpZlkyYzJ3V2xVOFNKQXZfN1FfcU1MZXhxWXNJNkdsUVlob1kyM1k00gF3QVVfeXFMUGZPYk9sWjgzSWE2bFNpaDZocVdVQjkyM21lN0tSTEpVVllBSmxyc0VRc1A3bVZIWk1iZHBqVXhPNW9WUWNEekZwQUlkTDBQTUREWER2ellEYjQ0NGFGYU5oQlNmY2E4ZW90TFJMb2pGQjRpdVhUVnM?oc=5",
+      "status": "sent",
+      "title": "North Hills, Hillsborough Street and Pittsboro restaurants go out of business"
     },
     "url:https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGFKdEhHV0IxTjMwVnlERDJaelZSR01hZnFMckRGYkRoVVp2M0FiOHg1OU1BZ3F1SFg1UmZ5V0JwSWJUSElTYkdiSEYwTzlRc3FyWGF3bFpIUHh6Z0dEdXBMWFBkLXg3T3dYNXlXRmg4MTRRVUJCcGQ2SEFYQUV4Rnh2VUhTcl810gGIAUFVX3lxTE9DYTdDTnR5c1hmbVc2SEUxSTIybktXQmZiSF9iUjZ1aHRPQUNya1ZfQ0ktdjhOSjFZdVdGMHJ2RXduOTh4Z3BXdzY1alBoRzZVQWxTYVl2NWY3UGlCTnFiZzZYdjEyZTdjVFd6Mk1US2pXaENBUERKeUlLZlhNY2xkek52N3czNzI?oc=5": {
       "date": "2026-10-27",
