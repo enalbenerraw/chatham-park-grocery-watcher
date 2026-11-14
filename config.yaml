@@ -64,7 +64,7 @@ max_age_days: 90
 # ---------------------------------------------------------------------------
 google_news:
   # Searches run as written. One extra search per chain above is added
-  # automatically in the form: "Chatham Park" <chain>
+  # automatically in the form: "<chain_query_place>" <chain>
   queries:
     - '"Chatham Park" grocery'
     - '"Chatham Park" "grocery store"'
@@ -78,6 +78,9 @@ google_news:
     - '"Chatham Park" site:chapelboro.com'
     - '"Chatham Park" site:chathamjournal.com'
   add_chain_queries: true
+  # The place name paired with each chain in those automatic searches.
+  # Leave it blank to skip them.
+  chain_query_place: Chatham Park
   # Limit Google News to recent results (for example 7d, 30d, 90d).
   recent: 90d
 
@@ -103,6 +106,8 @@ local_feeds:
 # "Agenda Center" at pittsboronc.gov/AgendaCenter.
 town_agendas:
   enabled: true
+  # Shown in the email and the log, for example "Town of Pittsboro agendas".
+  name: Town of Pittsboro
   base_url: https://www.pittsboronc.gov
   # Only meetings whose board name contains one of these words are scanned.
   # Leave the list empty to scan every board.

@@ -15,7 +15,7 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 
 ## How it works
 
-1. **Sources.** Google News RSS searches (configured queries plus one `"Chatham Park" <chain>` per chain). Local news feeds (Chatham News + Record, Chapelboro, Chatham Journal), each with fallback URLs tried in order. Town of Pittsboro CivicPlus Agenda Center (`/RSSFeed.aspx?ModID=65&CID=All-0`, `/AgendaCenter`, `/AgendaCenter/Search/`), filtered to Board of Commissioners and Planning Board, downloading `?packet=true` PDFs and extracting text with pypdf.
+1. **Sources.** Google News RSS searches (configured queries plus one `"<chain_query_place>" <chain>` per chain). Local news feeds (Chatham News + Record, Chapelboro, Chatham Journal), each with fallback URLs tried in order. Town of Pittsboro CivicPlus Agenda Center (`/RSSFeed.aspx?ModID=65&CID=All-0`, `/AgendaCenter`, `/AgendaCenter/Search/`), filtered to Board of Commissioners and Planning Board, downloading `?packet=true` PDFs and extracting text with pypdf.
 2. **Matching.** Flag only if the text has a location term AND a grocery term (generic word or chain). Case-insensitive, tolerant of apostrophes, hyphens, and plurals, except that chain names never match in all lower case ("sprouts" is a plant). Google News feeds carry only the headline, so for those items a grocery term in the search that found the item counts as the grocery hit; the location must still be in the headline. The digest marks these "Headline only".
 3. **Low priority.** If an item mentions a `low_priority_terms` entry (Lowes Foods, Northwood Landing), names no other chain, and has no `new_store_phrases` match, it is held in `state["pending_low"]` and never emails alone. It rides along with the next real digest or weekly heartbeat.
 4. **Dedupe.** News is keyed by normalized URL, title hash, and title+link hash. Agenda packets are keyed by document ID plus the set of grocery terms found, so an amended packet naming a new chain alerts again. Upcoming meetings are re-scanned each run; past meetings are scanned once.
@@ -43,6 +43,6 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 
 - No em dashes anywhere, including the README and emails. Use commas, parentheses, or separate sentences.
 - Keep it simple: one script plus one config file. Do not add a framework or database.
-- Keyword and source changes belong in `config.yaml`, not in code.
+- Keyword, source, and place-name changes belong in `config.yaml`, not in code. The code holds no town or place names.
 - The README audience is a non-developer. Write steps as clicks, not commands, where possible.
 - Run `python -m unittest test_watcher -v` before every commit.

@@ -179,6 +179,27 @@ class MatchingTests(unittest.TestCase):
         self.assertIn("<mark><b>Publix</b></mark>", out)
 
 
+class ConfigTests(unittest.TestCase):
+    """Place names come from config.yaml, never from the code."""
+
+    def test_chain_queries_use_configured_place(self):
+        cfg = {"google_news": {"queries": ["q"], "chain_query_place": "Main Street"},
+               "grocery_chains": ["Publix", "Aldi"]}
+        self.assertEqual(watcher.google_news_queries(cfg), ["q", '"Main Street" Publix', '"Main Street" Aldi'])
+
+    def test_blank_place_skips_chain_queries(self):
+        cfg = {"google_news": {"queries": ["q"], "chain_query_place": ""}, "grocery_chains": ["Publix"]}
+        self.assertEqual(watcher.google_news_queries(cfg), ["q"])
+
+    def test_missing_agenda_url_is_a_named_failure(self):
+        statuses = []
+        items = watcher.fetch_agendas(FakeSession(), {"town_agendas": {"name": "Town of Apex"}}, {}, statuses)
+        self.assertEqual(items, [])
+        self.assertEqual(statuses[0].name, "Town of Apex agendas")
+        self.assertFalse(statuses[0].ok)
+        self.assertIn("base_url", statuses[0].detail)
+
+
 class EndToEndTests(unittest.TestCase):
     def run_watcher(self, state, *extra):
         sent = []
@@ -206,6 +227,8 @@ class EndToEndTests(unittest.TestCase):
             self.assertEqual(text_body.count("Publix coming to Pittsboro\n"), 1)
             self.assertIn("Lower priority", text_body)
             self.assertIn("FAILED Chatham News + Record", text_body)
+            self.assertTrue(text_body.startswith("Chatham Park grocery watch\n"))  # heading from subject_prefix
+            self.assertIn("Town of Pittsboro Agenda Center", text_body)  # label from town_agendas.name
 
             code, sent = self.run_watcher(state)
             self.assertEqual(code, 0)

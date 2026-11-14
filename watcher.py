@@ -120,6 +120,7 @@ class Matcher:
         self.generic = {t.lower() for t in cfg.get("grocery_terms", [])}
         self.chains = {t.lower() for t in cfg.get("grocery_chains", [])}
         self.low = {t.lower() for t in cfg.get("low_priority_terms", [])}
+        self.low_labels = list(cfg.get("low_priority_terms", []))
         self.fresh = self._compile(cfg.get("new_store_phrases", []))
         # Low-priority terms like "Northwood Landing" are context, not grocery
         # terms, so they are only used to classify, never to match.
@@ -243,8 +244,9 @@ def parse_feed(session, url):
 def google_news_queries(cfg: dict) -> list[str]:
     gn = cfg.get("google_news", {}) or {}
     queries = list(gn.get("queries", []))
-    if gn.get("add_chain_queries", True):
-        queries += [f'"Chatham Park" {chain}' for chain in cfg.get("grocery_chains", [])]
+    place = str(gn.get("chain_query_place") or "").strip()
+    if gn.get("add_chain_queries", True) and place:
+        queries += [f'"{place}" {chain}' for chain in cfg.get("grocery_chains", [])]
     return queries
 
 
@@ -400,7 +402,11 @@ def fetch_agendas(session, cfg, state, statuses) -> list[Item]:
     tcfg = cfg.get("town_agendas", {}) or {}
     if not tcfg.get("enabled", True):
         return []
-    base = tcfg.get("base_url", "https://www.pittsboronc.gov")
+    town = tcfg.get("name") or "Town"
+    base = tcfg.get("base_url")
+    if not base:
+        statuses.append(SourceStatus(f"{town} agendas", False, "town_agendas: base_url is missing in config.yaml"))
+        return []
     boards = [b.lower() for b in tcfg.get("boards", []) or []]
     lookback = int(tcfg.get("lookback_days", 60))
     max_bytes = int(float(tcfg.get("max_file_mb", 60)) * 1_000_000)
@@ -411,7 +417,7 @@ def fetch_agendas(session, cfg, state, statuses) -> list[Item]:
         docs = discover_agendas(session, base)
     except Exception as e:  # noqa: BLE001
         log.warning("Town agendas: could not list agendas (%s)", e)
-        statuses.append(SourceStatus("Town of Pittsboro agendas", False, str(e)))
+        statuses.append(SourceStatus(f"{town} agendas", False, str(e)))
         return []
 
     items, failures, considered = [], [], 0
@@ -442,11 +448,11 @@ def fetch_agendas(session, cfg, state, statuses) -> list[Item]:
             failures.append(f"{doc['id']}: {'; '.join(errs)}")
             continue
         scanned[doc["id"]] = today.isoformat()
-        board = doc["board"] or "Town of Pittsboro"
+        board = doc["board"] or town
         title = doc["title"] or "Meeting agenda"
         items.append(Item(
             title=f"{board}: {title} ({doc['date']:%b %d, %Y})", link=used,
-            source="Town of Pittsboro Agenda Center",
+            source=f"{town} Agenda Center",
             published=datetime.combine(doc["date"], datetime.min.time(), tzinfo=EASTERN),
             text=text, kind="agenda", doc_id=doc["id"],
         ))
@@ -455,7 +461,7 @@ def fetch_agendas(session, cfg, state, statuses) -> list[Item]:
     if failures:
         detail += f", {len(failures)} failed: " + " | ".join(failures[:3])
         log.warning("Town agendas: %s", detail)
-    statuses.append(SourceStatus("Town of Pittsboro agendas", not failures or bool(items), detail, len(items)))
+    statuses.append(SourceStatus(f"{town} agendas", not failures or bool(items), detail, len(items)))
     return items
 
 
@@ -499,14 +505,14 @@ def fmt_date(d: datetime | None) -> str:
     return d.astimezone(EASTERN).strftime("%b %d, %Y") if d else "date unknown"
 
 
-def build_digest(matches, low, statuses, matcher, heartbeat=False):
+def build_digest(matches, low, statuses, matcher, heartbeat=False, heading="News watch"):
     total = len(matches) + len(low)
     failed = [s for s in statuses if not s.ok]
     html_parts = [
         "<div style='font-family:Arial,Helvetica,sans-serif;max-width:720px;color:#222'>",
-        "<h2 style='margin-bottom:4px'>Chatham Park grocery watch</h2>",
+        f"<h2 style='margin-bottom:4px'>{html.escape(heading)}</h2>",
     ]
-    text_parts = ["Chatham Park grocery watch", ""]
+    text_parts = [heading, ""]
     if heartbeat:
         msg = "No new mentions since the last email. The watcher is running normally."
         html_parts.append(f"<p>{msg}</p>")
@@ -537,7 +543,7 @@ def build_digest(matches, low, statuses, matcher, heartbeat=False):
             text_parts.append("")
 
     section(f"New mentions ({len(matches)})", matches)
-    section(f"Lower priority: existing Lowes Foods / Northwood Landing ({len(low)})", low)
+    section(f"Lower priority: {' / '.join(matcher.low_labels) or 'old news'} ({len(low)})", low)
 
     ok = sum(1 for s in statuses if s.ok)
     health = f"Sources checked: {ok} of {len(statuses)} working."
@@ -562,7 +568,7 @@ def send_email(cfg: dict, subject: str, html_body: str, text_body: str) -> None:
     ecfg = cfg.get("email", {}) or {}
     provider = (os.environ.get("EMAIL_PROVIDER") or ecfg.get("provider", "gmail")).lower()
     to = [a.strip() for a in os.environ.get("EMAIL_TO", "").split(",") if a.strip()]
-    full_subject = f"{ecfg.get('subject_prefix', 'Chatham Park grocery watch')}: {subject}"
+    full_subject = f"{ecfg.get('subject_prefix', 'News watch')}: {subject}"
     if provider == "resend":
         key = os.environ.get("RESEND_API_KEY")
         sender = os.environ.get("EMAIL_FROM") or "Grocery Watch <onboarding@resend.dev>"
@@ -627,7 +633,8 @@ def collect(cfg, state, session):
         items += fetch_agendas(session, cfg, state, statuses)
     except Exception as e:  # noqa: BLE001
         log.exception("Town agendas failed")
-        statuses.append(SourceStatus("Town of Pittsboro agendas", False, str(e)))
+        town = (cfg.get("town_agendas", {}) or {}).get("name") or "Town"
+        statuses.append(SourceStatus(f"{town} agendas", False, str(e)))
     return items, statuses
 
 
@@ -674,8 +681,9 @@ def main(argv=None) -> int:
     matcher = Matcher(cfg)
 
     if args.test_email:
-        send_email(cfg, "test email", "<p>Your Chatham Park grocery watcher can send email.</p>",
-                   "Your Chatham Park grocery watcher can send email.")
+        prefix = (cfg.get("email", {}) or {}).get("subject_prefix", "News watch")
+        send_email(cfg, "test email", f"<p>{html.escape(prefix)} can send email.</p>",
+                   f"{prefix} can send email.")
         log.info("Test email sent.")
         return 0
 
@@ -694,6 +702,7 @@ def main(argv=None) -> int:
     log.info("%d items checked: %d new matches, %d lower priority", len(items), len(high), len(low))
 
     ecfg = cfg.get("email", {}) or {}
+    prefix = ecfg.get("subject_prefix", "News watch")
     today = datetime.now(EASTERN).date()
     heartbeat_due = (
         not high and ecfg.get("weekly_heartbeat", False)
@@ -705,17 +714,18 @@ def main(argv=None) -> int:
     pending_low = state.get("pending_low", [])
 
     if args.dry_run:
-        subject, _, text_body = build_digest(high, low, statuses, matcher, heartbeat=not high)
+        subject, _, text_body = build_digest(high, low, statuses, matcher, heartbeat=not high, heading=prefix)
         print("\n" + "=" * 70)
         print(f"DRY RUN. Would send: {'yes' if high else ('heartbeat' if heartbeat_due else 'no email')}")
-        print(f"Subject: {ecfg.get('subject_prefix', 'Chatham Park grocery watch')}: {subject}")
+        print(f"Subject: {prefix}: {subject}")
         print("=" * 70)
         print(text_body)
         return 0
 
     if high or heartbeat_due:
         low_rows = low + [_pending_to_match(p) for p in pending_low]
-        subject, html_body, text_body = build_digest(high, low_rows, statuses, matcher, heartbeat=not high)
+        subject, html_body, text_body = build_digest(high, low_rows, statuses, matcher, heartbeat=not high,
+                                                     heading=prefix)
         send_email(cfg, subject, html_body, text_body)
         log.info("Email sent: %s", subject)
         remember(state, high + low, "sent")

@@ -108,7 +108,7 @@ To turn the weekly "nothing new" email off, or move it to a different day, edit 
 
 Everything the watcher looks for is in `config.yaml`. Open it on GitHub, click the pencil icon, edit, and commit. Each section has a short note explaining it. Common edits:
 
-- **Add a chain:** add a line under `grocery_chains`, for example `  - Costco`. Keep the two spaces and the dash. A Google News search for `"Chatham Park" Costco` is added automatically.
+- **Add a chain:** add a line under `grocery_chains`, for example `  - Costco`. Keep the two spaces and the dash. A Google News search for `"Chatham Park" Costco` is added automatically (the place comes from `chain_query_place`).
 - **Add a place:** add a line under `location_terms`.
 - **Add a search:** add a line under `google_news: queries:`. Wrap exact phrases in single quotes on the outside and double quotes inside, like `'"Chatham Park" retail'`.
 - **Look further back:** raise `max_age_days`.
@@ -140,14 +140,18 @@ Write down the one thing you are waiting to learn, for example "which restaurant
 2. **Quote exact phrases.** `'"Main Street" restaurant'` finds the phrase; `Main Street restaurant` finds pages with those words anywhere. Keep the single quotes outside and double quotes inside.
 3. **One idea per search.** Several short searches catch more than one long one. Google News returns only about 100 results per search.
 4. **Back up each local outlet.** Add a `site:` search for each local paper (for example `'"Main Street" site:yourpaper.com'`). If the paper's own feed breaks, Google News still covers it.
-5. **Turn off the automatic chain searches.** `add_chain_queries: true` builds one search per name in the form `"Chatham Park" <name>`, with Chatham Park built in. For another place, set it to `false` and write those searches yourself under `queries:`.
+5. **Point the automatic searches at your place.** With `add_chain_queries: true`, the watcher builds one search per name in `grocery_chains`, in the form `"<chain_query_place>" <name>`. Set `chain_query_place` to your most specific place name, for example `Main Street`. Leave it blank to skip these searches.
 6. **Hold old news down, not out.** Rather than deleting a term that keeps matching stale stories, put it in `low_priority_terms`. You still see it, at the bottom of a real digest, and it never pages you alone.
 
 ### Swapping the sources
 
 - **Local news feeds.** Most news sites built on WordPress publish a feed at `/feed/`. Add the site under `local_feeds` and run **check-sources** to confirm it works.
-- **Town agendas.** This part reads only the CivicPlus "Agenda Center," which many US towns use. Your town uses it if its agenda page address contains `/AgendaCenter`. If so, change `base_url` to your town's site. If not, set `enabled: false`. The other sources keep working.
-- **Email wording.** Change `subject_prefix` under `email:` so the subject names your topic.
+- **Town agendas.** This part reads only the CivicPlus "Agenda Center," which many US towns use. Your town uses it if its agenda page address contains `/AgendaCenter`. If so, change `base_url` to your town's site and `name` to your town's name. If not, set `enabled: false`. The other sources keep working.
+- **Email wording.** Change `subject_prefix` under `email:`. It is the email subject and the heading at the top of each digest, so name your topic, for example `Main Street restaurant watch`.
+
+## License
+
+MIT. Use it, change it, and share it. See [LICENSE](LICENSE).
 
 ## Using Resend instead of Gmail (optional)
 
