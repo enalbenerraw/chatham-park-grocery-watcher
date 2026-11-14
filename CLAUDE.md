@@ -43,6 +43,6 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 
 - No em dashes anywhere, including the README and emails. Use commas, parentheses, or separate sentences.
 - Keep it simple: one script plus one config file. Do not add a framework or database.
-- Keyword, source, and place-name changes belong in `config.yaml`, not in code. The code holds no town or place names.
+- Keyword, source, and place-name changes belong in `config.yaml`, not in code. Outside the module docstring and User-Agent, the code names no town or place.
 - The README audience is a non-developer. Write steps as clicks, not commands, where possible.
 - Run `python -m unittest test_watcher -v` before every commit.
