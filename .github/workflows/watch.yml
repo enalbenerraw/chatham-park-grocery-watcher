@@ -2,9 +2,10 @@ name: Chatham Park grocery watch
 
 on:
   schedule:
-    # 11:00 UTC = 7am Eastern in summer (EDT), 6am in winter (EST).
-    # For weekly instead of daily, use: "0 11 * * 1"  (Mondays)
-    - cron: "0 11 * * *"
+    # 11:17 UTC = 7:17am Eastern in summer (EDT), 6:17am in winter (EST).
+    # Off the hour on purpose: GitHub queues :00 jobs behind everyone else.
+    # For weekly instead of daily, use: "17 11 * * 1"  (Mondays)
+    - cron: "17 11 * * *"
   workflow_dispatch:
     inputs:
       mode:

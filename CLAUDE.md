@@ -9,7 +9,7 @@ A small monitor that runs daily on GitHub Actions and emails a digest when there
 | `watcher.py` | The whole program. Fetches sources, matches, dedupes, emails, saves state. |
 | `config.yaml` | Every keyword, source URL, and email setting. The owner edits this by hand on GitHub. |
 | `seen.json` | Memory of what was already sent. Created on the first real run and committed back by the workflow. Do not edit by hand. |
-| `.github/workflows/watch.yml` | Daily schedule (11:00 UTC), manual run with modes: normal, dry-run, check-sources, test-email. |
+| `.github/workflows/watch.yml` | Daily schedule (11:17 UTC, off the hour to dodge GitHub queue delays), manual run with modes: normal, dry-run, check-sources, test-email. |
 | `test_watcher.py` | Offline tests with canned responses. No network needed. |
 | `README.md` | Setup guide written for a non-developer. Keep it that way. |
 

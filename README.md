@@ -2,6 +2,8 @@
 
 A small robot that checks the web every morning and emails you when there is news about which grocery chain is coming to the new mixed-use center near the Chatham Park YMCA in Pittsboro, NC. It runs free on GitHub Actions, so no computer needs to stay on.
 
+It was built for one question in one town, but every keyword and source lives in `config.yaml`. To watch for something else (a new restaurant, a rezoning, a school site), see [Adapting it to track something else](#adapting-it-to-track-something-else).
+
 ## What it checks
 
 | Source | How |
@@ -22,11 +24,17 @@ Each mention shows the headline (linked), source, date, which keywords matched, 
 
 If nothing new turned up, no email is sent. Once a week (Monday by default) you get a short "no new mentions this week" email so you know it is still running. You can turn that off.
 
----
-
 ## Setup (about 15 minutes, no coding)
 
 The watcher's settings are in `config.yaml`, and its schedule is in `.github/workflows/watch.yml`. GitHub only runs scheduled jobs from the repository's `main` branch.
+
+### Step 0. Make your own copy
+
+You need a free GitHub account. Your copy holds your own email settings, so nothing you set up touches this repository.
+
+1. At the top of this repository's page, click **Fork**, then **Create fork**.
+2. In your fork, open `seen.json`, click the trash icon, and commit. That file is the original owner's memory of what was already sent. Without this step, your first run would skip everything they have already seen. The watcher creates a fresh one for you on its first run.
+3. Open the **Actions** tab of your fork and click **I understand my workflows, go ahead and enable them**. GitHub turns off scheduled jobs in forks until you do this.
 
 ### Step 1. Get a Gmail app password
 
@@ -73,26 +81,26 @@ Go to the **Actions** tab, click **Chatham Park grocery watch** in the left list
 
 After that, it runs by itself every morning.
 
----
-
 ## Changing the schedule
 
 Open `.github/workflows/watch.yml` on GitHub and click the pencil icon. Find this line:
 
 ```yaml
-    - cron: "0 11 * * *"
+    - cron: "17 11 * * *"
 ```
 
-The time is in UTC. `11` means 7am Eastern in summer and 6am in winter.
+The first number is the minute and the second is the hour, in UTC. `17 11` means 7:17am Eastern in summer and 6:17am in winter.
 
 | You want | Change the line to |
 |---|---|
-| Daily, about 7am Eastern | `- cron: "0 11 * * *"` (the default) |
-| Weekly, Monday morning | `- cron: "0 11 * * 1"` |
-| Twice a week, Monday and Thursday | `- cron: "0 11 * * 1,4"` |
-| Daily, about 9pm Eastern | `- cron: "0 1 * * *"` |
+| Daily, about 7am Eastern | `- cron: "17 11 * * *"` (the default) |
+| Weekly, Monday morning | `- cron: "17 11 * * 1"` |
+| Twice a week, Monday and Thursday | `- cron: "17 11 * * 1,4"` |
+| Daily, about 9pm Eastern | `- cron: "17 1 * * *"` |
 
-Click **Commit changes**. GitHub sometimes starts scheduled runs a few minutes late; that is normal.
+Click **Commit changes**.
+
+**Expect the email later than the scheduled time.** GitHub treats the schedule as "no earlier than," not an appointment. Runs often start late, sometimes by several hours on busy days. Keep the minute off `00`: so many jobs worldwide are scheduled on the hour that those wait longest. If the exact time matters to you, schedule it earlier than you need it.
 
 To turn the weekly "nothing new" email off, or move it to a different day, edit `weekly_heartbeat` and `heartbeat_day` at the bottom of `config.yaml`.
 
@@ -109,6 +117,37 @@ Everything the watcher looks for is in `config.yaml`. Open it on GitHub, click t
 After editing, run the workflow in **dry-run** mode to check the result before the next real run.
 
 Matching ignores capitals and small spelling differences: `Lowe's Foods` matches `Lowes Foods`, `Trader Joes` matches `Trader Joe's`, and plurals match.
+
+## Adapting it to track something else
+
+The watcher asks one question: did anything mention **a place** and **a topic** together? Change the two lists and the searches, and it watches for something else. Make these edits in `config.yaml`, then run **dry-run** to see what the new settings would catch.
+
+### Start with the question, then pick the words
+
+Write down the one thing you are waiting to learn, for example "which restaurant takes the old bank building on Main Street." Then fill in:
+
+| Setting | What goes in it | Example |
+|---|---|---|
+| `location_terms` | Names specific to your place: the development, the street, the neighborhood | `Main Street`, `Old Bank Building` |
+| `grocery_terms` | Words that mean your topic (the name is historical; it works for any topic) | `restaurant`, `tenant`, `lease` |
+| `grocery_chains` | Specific names you expect to see. These count as topic words too | `Chipotle`, `Panera` |
+| `low_priority_terms` | Old news that keeps resurfacing and should not trigger an email alone | The tenant that already opened last year |
+| `new_store_phrases` | Phrases that mean "this is new," which override low priority | `new location`, `coming soon` |
+
+### Tips for better searches
+
+1. **Specific beats broad.** Every location term must appear in an item before it can match. A city name alone will flood you; a development or street name will not. Put broad names in a search query instead, where Google does the filtering.
+2. **Quote exact phrases.** `'"Main Street" restaurant'` finds the phrase; `Main Street restaurant` finds pages with those words anywhere. Keep the single quotes outside and double quotes inside.
+3. **One idea per search.** Several short searches catch more than one long one. Google News returns only about 100 results per search.
+4. **Back up each local outlet.** Add a `site:` search for each local paper (for example `'"Main Street" site:yourpaper.com'`). If the paper's own feed breaks, Google News still covers it.
+5. **Turn off the automatic chain searches.** `add_chain_queries: true` builds one search per name in the form `"Chatham Park" <name>`, with Chatham Park built in. For another place, set it to `false` and write those searches yourself under `queries:`.
+6. **Hold old news down, not out.** Rather than deleting a term that keeps matching stale stories, put it in `low_priority_terms`. You still see it, at the bottom of a real digest, and it never pages you alone.
+
+### Swapping the sources
+
+- **Local news feeds.** Most news sites built on WordPress publish a feed at `/feed/`. Add the site under `local_feeds` and run **check-sources** to confirm it works.
+- **Town agendas.** This part reads only the CivicPlus "Agenda Center," which many US towns use. Your town uses it if its agenda page address contains `/AgendaCenter`. If so, change `base_url` to your town's site. If not, set `enabled: false`. The other sources keep working.
+- **Email wording.** Change `subject_prefix` under `email:` so the subject names your topic.
 
 ## Using Resend instead of Gmail (optional)
 
