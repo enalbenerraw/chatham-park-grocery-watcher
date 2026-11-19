@@ -1,7 +1,19 @@
 {
   "last_heartbeat": "2026-11-16",
-  "last_run": "2026-11-18T14:25:51-05:00",
-  "pending_low": [],
+  "last_run": "2026-11-19T14:30:32-05:00",
+  "pending_low": [
+    {
+      "hits": [
+        "Pittsboro",
+        "Lowes Foods"
+      ],
+      "link": "https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes/",
+      "published": "2026-11-18T01:02:09+00:00",
+      "snippet": "...the uses described for the Mixed-Use Activity Center designation. Applicant attorney Patrick Bradshaw argued that indoor storage could serve nearby apartment residents and other households. Restricting it to lots behind Lowe's Foods would limit visibility from major roads, he said. The applicant's argument emphasized how the facility would function and appear: an indoor service responding to nearby residential demand. Staff's argument emphasized th...",
+      "source": "Chatham Journal",
+      "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
+    }
+  ],
   "scanned_docs": {
     "09142026-566": "2026-10-27",
     "09212026-569": "2026-10-27",
@@ -54,6 +66,12 @@
       "status": "sent",
       "title": "Chatham Park recruits world-class golf course designer for South Village project"
     },
+    "title:dc748783b6585d6a": {
+      "date": "2026-11-19",
+      "link": "https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes/",
+      "status": "held",
+      "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
+    },
     "titlelink:1bebaf665404cc5b": {
       "date": "2026-11-04",
       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5",
@@ -72,6 +90,12 @@
       "status": "sent",
       "title": "North Hills, Hillsborough Street and Pittsboro restaurants go out of business"
     },
+    "titlelink:41606f016cf7ea3b": {
+      "date": "2026-11-19",
+      "link": "https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes/",
+      "status": "held",
+      "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
+    },
     "titlelink:79b2601e13c4ec07": {
       "date": "2026-10-27",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGFKdEhHV0IxTjMwVnlERDJaelZSR01hZnFMckRGYkRoVVp2M0FiOHg1OU1BZ3F1SFg1UmZ5V0JwSWJUSElTYkdiSEYwTzlRc3FyWGF3bFpIUHh6Z0dEdXBMWFBkLXg3T3dYNXlXRmg4MTRRVUJCcGQ2SEFYQUV4Rnh2VUhTcl810gGIAUFVX3lxTE9DYTdDTnR5c1hmbVc2SEUxSTIybktXQmZiSF9iUjZ1aHRPQUNya1ZfQ0ktdjhOSjFZdVdGMHJ2RXduOTh4Z3BXdzY1alBoRzZVQWxTYVl2NWY3UGlCTnFiZzZYdjEyZTdjVFd6Mk1US2pXaENBUERKeUlLZlhNY2xkek52N3czNzI?oc=5",
@@ -89,6 +113,12 @@
       "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNV2Rjd0V1d2g5WVA2NDZMMU5zRTNtTDgwbkQ3OGNXdWI3RkZWbktsMUdROEE1eUlYUFZjaVB4SFZjTVFHeUZuODdCNTdwVDVmWjNGNlF2WXlSTzBPVmphcDFMck5HSE11T2M4OGhhTDRFam1lY1MwNVlKS1Q3YjU2NzNDMERhM0pQUzNZY1p6TC1yQkFpNGJmbUJvNTJzSVBxZHJMZ21PdFpQc1B3dnRCMHhvUkhKQWtuLXJHOVl2ZWhiYkdEUVFSSUh30gHPAUFVX3lxTE9KYUFYQXg2WFZvQnJMSnU1dXJodTBXZE5qNlJuLXBDRjd1QTYwUS11VXpsV3M0dUxkb2Q1V2d5UlY0eTFQaDFqYTQ2UjVFZk5BUFZGemxoUDdzSmhLWTUyZ0M1NnFLQ1p2ZU0yRHljMURpdXNvS2RoLTF4eVVQaHRTMGRQR0kyMkptRDhmRE5nUVJRc0tVaFAwWUhBZEQyWFVyekVWSHBaeFhLMmRNUnE5bVBMODFMV0hrN3lFdTF0bTRwcWExbHlVSkNqeUh3bw?oc=5",
       "status": "sent",
       "title": "Chatham Park maps next growth wave: 4,700 lots, new village center and major medical expansion"
+    },
+    "url:https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes": {
+      "date": "2026-11-19",
+      "link": "https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes/",
+      "status": "held",
+      "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
     },
     "url:https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5": {
       "date": "2026-11-04",
