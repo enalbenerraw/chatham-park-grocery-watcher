@@ -1,7 +1,19 @@
 {
   "last_heartbeat": "2026-11-16",
-  "last_run": "2026-11-21T13:00:14-05:00",
-  "pending_low": [],
+  "last_run": "2026-11-22T13:32:04-05:00",
+  "pending_low": [
+    {
+      "hits": [
+        "Pittsboro",
+        "Lowes Foods"
+      ],
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZjBHOVFvVkQ0NGNFNm5ONkY2Z19pRnV3UHJ1dWNlM1QtMi1ZbHBMOHZ3LUVEbEREV1QwckZTdnRqbHQxbERoMWIyUVl1enBZM0V6em1ZWkNWRVQ5Z251b1RqbUNGOEQxWEFSUVA2dFB2TWhtTHRoOFdOeVphSlhPdFZRN3kyUUF6dFNjMzdORWZBNUpRUFZXMUZONE9nMW5kN2VtZzVSX0RsZEFXV2tHeF9wTUZLZmFpLVI4dFl4NTNDcHRnbGNLc2ZtTE5ZcllQSFE?oc=5",
+      "published": "2026-11-19T05:00:00+00:00",
+      "snippet": "Headline only. Google News found this article with the search: \"Chatham Park\" Lowes Foods",
+      "source": "The Sanford Herald",
+      "title": "On-demand transit service launches in Pittsboro"
+    }
+  ],
   "scanned_docs": {
     "09142026-566": "2026-10-27",
     "09212026-569": "2026-10-27",
@@ -66,6 +78,12 @@
       "status": "held",
       "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
     },
+    "title:ff26763ba2cb72b4": {
+      "date": "2026-11-22",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZjBHOVFvVkQ0NGNFNm5ONkY2Z19pRnV3UHJ1dWNlM1QtMi1ZbHBMOHZ3LUVEbEREV1QwckZTdnRqbHQxbERoMWIyUVl1enBZM0V6em1ZWkNWRVQ5Z251b1RqbUNGOEQxWEFSUVA2dFB2TWhtTHRoOFdOeVphSlhPdFZRN3kyUUF6dFNjMzdORWZBNUpRUFZXMUZONE9nMW5kN2VtZzVSX0RsZEFXV2tHeF9wTUZLZmFpLVI4dFl4NTNDcHRnbGNLc2ZtTE5ZcllQSFE?oc=5",
+      "status": "held",
+      "title": "On-demand transit service launches in Pittsboro"
+    },
     "titlelink:1bebaf665404cc5b": {
       "date": "2026-11-04",
       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5",
@@ -89,6 +107,12 @@
       "link": "https://chathamjournal.com/2026/11/17/pittsboro-planners-delay-conservation-rules-oppose-northwood-storage-and-highway-access-changes/",
       "status": "held",
       "title": "Pittsboro planners delay conservation rules, oppose Northwood storage and highway-access changes"
+    },
+    "titlelink:4a6c7b147c39085b": {
+      "date": "2026-11-22",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZjBHOVFvVkQ0NGNFNm5ONkY2Z19pRnV3UHJ1dWNlM1QtMi1ZbHBMOHZ3LUVEbEREV1QwckZTdnRqbHQxbERoMWIyUVl1enBZM0V6em1ZWkNWRVQ5Z251b1RqbUNGOEQxWEFSUVA2dFB2TWhtTHRoOFdOeVphSlhPdFZRN3kyUUF6dFNjMzdORWZBNUpRUFZXMUZONE9nMW5kN2VtZzVSX0RsZEFXV2tHeF9wTUZLZmFpLVI4dFl4NTNDcHRnbGNLc2ZtTE5ZcllQSFE?oc=5",
+      "status": "held",
+      "title": "On-demand transit service launches in Pittsboro"
     },
     "titlelink:79b2601e13c4ec07": {
       "date": "2026-10-27",
@@ -125,6 +149,12 @@
       "link": "https://chathamjournal.com/2026/11/19/hunger-in-chatham-county-400-volunteers-42-more-visits-to-coras-pantries/",
       "status": "sent",
       "title": "Hunger in Chatham County: 400 volunteers, 42% more visits to CORA's pantries"
+    },
+    "url:https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZjBHOVFvVkQ0NGNFNm5ONkY2Z19pRnV3UHJ1dWNlM1QtMi1ZbHBMOHZ3LUVEbEREV1QwckZTdnRqbHQxbERoMWIyUVl1enBZM0V6em1ZWkNWRVQ5Z251b1RqbUNGOEQxWEFSUVA2dFB2TWhtTHRoOFdOeVphSlhPdFZRN3kyUUF6dFNjMzdORWZBNUpRUFZXMUZONE9nMW5kN2VtZzVSX0RsZEFXV2tHeF9wTUZLZmFpLVI4dFl4NTNDcHRnbGNLc2ZtTE5ZcllQSFE?oc=5": {
+      "date": "2026-11-22",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQZjBHOVFvVkQ0NGNFNm5ONkY2Z19pRnV3UHJ1dWNlM1QtMi1ZbHBMOHZ3LUVEbEREV1QwckZTdnRqbHQxbERoMWIyUVl1enBZM0V6em1ZWkNWRVQ5Z251b1RqbUNGOEQxWEFSUVA2dFB2TWhtTHRoOFdOeVphSlhPdFZRN3kyUUF6dFNjMzdORWZBNUpRUFZXMUZONE9nMW5kN2VtZzVSX0RsZEFXV2tHeF9wTUZLZmFpLVI4dFl4NTNDcHRnbGNLc2ZtTE5ZcllQSFE?oc=5",
+      "status": "held",
+      "title": "On-demand transit service launches in Pittsboro"
     },
     "url:https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTczUUk1cGZLSWc5N0JzUDd5ZmZxRzIxclhoNE9MZjRyVzF2ZWhjVzM2dWY2M3F2YWUzUUdYTlExTXNuLXVPSmFqSXk4MmJib1FjczEwdEk1TUREUXRYWkFTMjN5MFlxMEtfYndwSEhuVkxMVTFtQTVCSEZkM3V0MDFnQlFNVzQ4LTBjTndEbll2a2dmWl8xOUF2TFBvbElHNXlueEpnMUY2dVRVcXl0eUkzTjJlSjFabzY4RFp5cVBoUTFqOUpJYzFSOGQ1RTA4OFQ5U3laMG96X2NHeFJ6VHdpa3pUeEViRGc?oc=5": {
       "date": "2026-11-04",
